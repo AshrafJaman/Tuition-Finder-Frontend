@@ -24,7 +24,7 @@ export function PrivateRoute({ children, ...rest }) {
 }
 export function AdminRoute({ children, ...rest }) {
   const [user] = useContext(UserContext);
-  // 'suhin4000@gmail.com';
+  
 
   return (
     <Route
