@@ -1,0 +1,121 @@
+.shu_Box {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.cardbutton_s,
+.card-title_s,
+.cardmeta-info_s {
+  font-family: "Blinker", sans-serif;
+}
+
+.card-title_s {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 0.5em;
+  line-height: 1.1;
+}
+
+.card-text_s,
+.cardmeta-info_s {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card-text_s {
+  line-height: 1.6;
+}
+
+.cardmeta-info_s {
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
+.span_s,
+.cardbutton_s {
+  font-weight: 700;
+}
+
+.cardmeta-info_s > span {
+  display: block;
+  font-size: 1.85em;
+}
+
+.cardbutton_s {
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  padding: 0.55em 2em;
+  color: #fff;
+  background-color: rgb(11, 148, 63);
+}
+
+.cardbutton_s:hover,
+.cardbutton_s:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Card Styles */
+.card_s,
+.card-body_s,
+.cardcta_s {
+  display: flex;
+}
+.card_s {
+  width: 90%;
+  max-width: 880px;
+  height: 620px;
+  flex-direction: column;
+  background-color: #222d4a;
+}
+
+.card-header_s {
+  flex-basis: 40%;
+  object-fit: cover;
+  /* When using flex-basis on image, there is a bug in browsers (mostly Chrome) where flex-basis is not applied.*/
+  /* To fix it, min width and hight (or whichever is cousing you problems) need to be set to 0. */
+  min-width: 0;
+  min-height: 0;
+}
+
+.card-body_s {
+  flex-basis: 60%;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.cardcta_s {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.cardcta_s p {
+  flex: 0;
+}
+
+/* responsive part */
+
+@media screen and (min-width: 620px) {
+  .card-title_s {
+    font-size: 36px;
+  }
+
+  .card-text_s {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .card_s {
+    flex-direction: row;
+    height: 350px;
+  }
+
+  .card-header_s {
+    object-position: 20% 30%;
+  }
+}

@@ -1,0 +1,189 @@
+.profile {
+  background-image: linear-gradient(to right, #32483d, #8a6e97);
+  min-height: 100vh;
+  padding: 0px 15% 30px 15%;
+}
+.profileTop {
+  color: white;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+.profileTop > div:nth-child(1) {
+  border: 3px solid white;
+}
+.profileTop > div:nth-child(2) {
+  color: white !important;
+  margin-left: 20px;
+}
+.profileTop > div > button {
+  color: #0866ff;
+}
+.profileTop > div > div > button {
+  background-color: #0866ff;
+  color: white;
+  text-transform: inherit;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.profileTop > div > div {
+  display: flex;
+  align-items: center;
+}
+.profileTop > div > div > span {
+  display: flex;
+  align-items: center;
+}
+.profileBottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: white;
+  max-height: fit-content;
+}
+.profileBottom > div > h3 {
+  color: #0866ff;
+  letter-spacing: 1px;
+}
+.profileBottom > div > div > button {
+  background: none;
+  border: 2px solid #0866ff;
+  color: white;
+  font-weight: 700;
+  text-transform: inherit;
+  margin: 30px auto;
+}
+.profileBottom > div:nth-child(1) > p {
+  max-width: 70%;
+  margin-top: 15px;
+}
+.profileBottom > div:nth-child(1) > a > button {
+  color: white;
+  border: 1px solid white;
+  margin-top: 20px;
+}
+.profileBottom > div:nth-child(2) > ul > li {
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.493);
+  font-weight: 700;
+  font-style: italic;
+}
+.profileBottom > div:nth-child(2) > ul > li > .MuiSvgIcon-root {
+  color: #0866ff;
+}
+.profileBottom > div:nth-child(2) > ul > li > div:nth-child(2) {
+  flex: 1;
+  margin: 0px 10px;
+}
+.feed {
+  margin-top: 10px;
+  max-width: 40%;
+}
+.feed > h3 {
+  color: #0866ff;
+}
+.feed > div:nth-child(4) > button {
+  color: white !important;
+  margin-top: 20px;
+  border: 1px solid white;
+  text-transform: inherit;
+}
+.modal {
+  background-color: whitesmoke;
+  width: 50%;
+  min-height: 50vh;
+  outline: none;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+.modal > div:nth-child(1) {
+  background-image: linear-gradient(to bottom, #b972c7, #ae39d5, #762ad9);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+}
+
+.verified_user > h4 {
+  margin: 5px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  width: fit-content;
+}
+.verified_user > h4 > .MuiSvgIcon-root {
+  color: #0866ff;
+}
+.payPal_box {
+  padding: 30px 0px;
+  color: white;
+
+  max-width: fit-content;
+}
+.payPal_box > h4 {
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 1500px) {
+  .modal {
+    width: 95%;
+    min-height: 50vh;
+    outline: none;
+    display: grid;
+    grid-template-columns: 30% 70%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .profile {
+    padding: 10px 5%;
+  }
+  .profileTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .profileBottom {
+    display: grid;
+    grid-template-columns: 100%;
+    color: white;
+    max-height: fit-content;
+    margin-top: 50px;
+  }
+  .profileBottom > div:nth-child(1) > p {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+  .upperFeed {
+    display: flex;
+  }
+  .feed {
+    flex: 1;
+    margin-top: 10px;
+    max-width: 100%;
+    padding: 10%;
+  }
+  .modal {
+    width: 95%;
+    min-height: 50vh;
+    outline: none;
+    display: grid;
+    grid-template-columns: 30% 70%;
+  }
+  .profileBottom > div > h3 {
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .modal > div:nth-child(1) h2 {
+    font-size: 30px !important;
+  }
+  .modal > div:nth-child(1) h3 {
+    font-size: 15px !important;
+  }
+}

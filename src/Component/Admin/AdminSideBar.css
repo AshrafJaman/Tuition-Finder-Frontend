@@ -1,0 +1,31 @@
+.adminSideBar {
+  background: #363740;
+  min-width: 255px;
+  min-height: 100vh;
+  color: #dde2ff;
+}
+.adminSideBar__link {
+  display: grid;
+  place-items: center;
+  margin: 50px 0px;
+}
+.adminSideBar__button {
+  margin-bottom: 100px;
+}
+.adminSideBar__button div {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+  padding: 10px 7px;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+.MuiSvgIcon-root {
+  margin-right: 10px;
+}
+.active_admin {
+  background: #9fa2b442;
+
+  border-left: 3px solid #dde2ff;
+}

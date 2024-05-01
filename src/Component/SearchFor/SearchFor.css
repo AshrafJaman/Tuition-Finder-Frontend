@@ -1,0 +1,54 @@
+.searchFor {
+  background-color: #fafaff;
+  display: grid;
+  place-items: center;
+  min-height: 50vh;
+  padding: 100px 0px;
+}
+.searchFor > div:nth-child(1) {
+  text-align: center;
+}
+.searchFor > div:nth-child(1) > h2 {
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 1px;
+  color: #404145;
+}
+.searchFor > div:nth-child(1) > p {
+  color: gray;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-size: 25px;
+}
+
+.searchFor > div:nth-child(2) {
+  padding: 10px 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.searchFor > div > div:nth-child(2) {
+  padding: 10px 20px;
+}
+.searchFor > div > div:nth-child(2) > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .searchFor > div:nth-child(2) {
+    padding: 10px 0px;
+    display: block;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .searchFor > div:nth-child(2) > div:nth-child(1) {
+    text-align: center;
+  }
+  .searchFor > div:nth-child(2) > div > img {
+    width: 50%;
+    text-align: center;
+  }
+}

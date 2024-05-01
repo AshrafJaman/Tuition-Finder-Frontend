@@ -1,0 +1,143 @@
+.landing {
+  background-image: linear-gradient(to right, #001158, #757273);
+  padding: 0% 15%;
+}
+.landing > div {
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: 60% 40%;
+  margin-top: 60px;
+}
+.landing > div > div > img {
+  width: 500px;
+}
+.landingLeft {
+  margin-top: 100px;
+  color: white;
+}
+.landingLeft > form {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  max-width: 600px;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin: 15px 0px;
+}
+.landingLeft > form > input:nth-child(2) {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 5px;
+}
+.landingLeft > form > .MuiSvgIcon-root {
+  color: gray;
+}
+::placeholder {
+  font-size: 16px;
+}
+.landingLeft > form > button {
+  background-color: #0866FF;
+  font-weight: 700;
+  text-transform: inherit;
+  font-size: 18px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.landingLeft > h2 {
+  color: white;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px black;
+}
+.chip > small {
+  color: white;
+  font-weight: 700;
+}
+.chip > button {
+  background: none;
+  border: 1px solid lightgray;
+  color: white;
+  padding: 0px 25px;
+  margin: 0px 5px;
+  font-weight: 700;
+  border-radius: 100px;
+  text-transform: inherit;
+}
+.chip > button:hover {
+  background-color: white;
+  color: black;
+}
+@media only screen and (max-width: 1200px) {
+  .landing {
+    padding: 0% 5%;
+    min-height: 70vh;
+  }
+  .landing > div {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 100%;
+    margin-top: 60px;
+  }
+  .landingRight {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .landing {
+    padding: 0% 5%;
+    min-height: 60vh;
+  }
+  .landing > div {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 100%;
+    margin-top: 5px;
+  }
+  .landingRight {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .landing {
+    padding: 0% 5%;
+    min-height: 70vh;
+  }
+  .landingLeft > h2 {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px black;
+  }
+  .landingLeft > form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin: 25px 0px;
+  }
+  .landingLeft > form > button {
+    background-color: #0866FF;
+    font-weight: 700;
+    text-transform: inherit;
+    font-size: 14px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .chip {
+    margin-bottom: 10px;
+  }
+  .chip > button {
+    background: none;
+    border: 1px solid lightgray;
+    color: white;
+    padding: 0px 3px;
+    margin: 2px 3px;
+    font-weight: 300;
+    border-radius: 100px;
+    text-transform: inherit;
+  }
+}

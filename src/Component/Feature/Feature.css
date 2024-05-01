@@ -1,0 +1,78 @@
+/* Card Styles */
+.featurecard,
+.featurecard-body {
+  display: flex;
+}
+
+.featurecard {
+  width: 100%;
+  max-width: 100%;
+  height: 620px;
+  flex-direction: column;
+  background-color: #fafaff;
+}
+
+.featurecard-header {
+  flex-basis: 40%;
+  object-fit: cover;
+  /* When using flex-basis on image, there is a bug in browsers (mostly Chrome) where flex-basis is not applied.*/
+  /* To fix it, min width and hight (or whichever is cousing you problems) need to be set to 0. */
+  min-width: 0;
+  min-height: 0;
+}
+
+.featurecard-body {
+  flex-basis: 60%;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.featurecard-title {
+  color: #758191;
+  font-size: 34px;
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 60%;
+}
+
+.featurecard-text {
+  color: #758191;
+  line-height: 1.6;
+  max-width: 90%;
+}
+.btn_feature {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: auto;
+  margin-top: 10px;
+  font-size: 18px;
+}
+.close__modal__boss {
+  position: relative;
+}
+.close__modal {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+/* responsive part  starts here*/
+
+@media screen and (min-width: 720px) {
+  .featurecard-header {
+    object-position: 20% 30%;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .featurecard {
+    flex-direction: row;
+    height: 350px;
+  }
+  .featurecard-text {
+    max-width: 75%;
+  }
+}

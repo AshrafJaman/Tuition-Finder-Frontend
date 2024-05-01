@@ -1,0 +1,41 @@
+.spinner-container {
+  height: 80vh; /* You can adjust this value as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner circle {
+  fill: none;
+  stroke: #333; /* You can adjust the color */
+  stroke-width: 3;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 150;
+  }
+  50% {
+    stroke-dashoffset: 75;
+    transform: rotate(45deg);
+  }
+  100% {
+    stroke-dashoffset: 150;
+    transform: rotate(360deg);
+  }
+}

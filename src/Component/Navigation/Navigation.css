@@ -1,0 +1,117 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navigation > div:not(:nth-child(3)) {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation > div > div {
+  flex: 0.9;
+  display: flex;
+  justify-content: space-around;
+}
+.navigation > div > div > a {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+.navigation > a > h2 {
+  color: #ffffff;
+  font-size: 36px;
+}
+.navigationRight > button {
+  background-color: #0866ff;
+  color: white;
+  border-radius: 100px;
+  text-transform: inherit;
+  font-weight: 700;
+  padding: 10px 20px;
+}
+.navigationRight > button:hover {
+  background-color: white;
+  color: black;
+}
+.hamburger {
+  cursor: pointer;
+  display: none;
+}
+.hamburger > div {
+  width: 30px;
+  height: 2px;
+  margin: 5px 0px;
+  background: gray;
+}
+.for_mobile {
+  display: none !important;
+}
+a > u {
+  color: #60ecab;
+  display: flex;
+  align-items: center;
+}
+@media only screen and (max-width: 1024px) {
+  .navigation {
+    padding: 20px 0px;
+  }
+  .hamburger {
+    cursor: pointer;
+    display: block;
+    z-index: 1111;
+  }
+  .for_desktop {
+    display: none !important;
+  }
+  .for_mobile > .link {
+    color: black !important;
+  }
+  .hamburger__active {
+    transform: translate(0%) !important;
+  }
+  .toggle .line1 {
+    transform: translate(-0px, 6px) rotate(-45deg);
+  }
+  .toggle .line3 {
+    transform: translate(-0px, -7px) rotate(45deg);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .no__scroll {
+    overflow: hidden;
+  }
+  .for_mobile {
+    display: flex !important;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    background-color: white;
+    z-index: 100;
+    width: 100%;
+    overflow: hidden;
+    transform: translate(-100%);
+    transition-duration: 0.4s;
+  }
+  .for_mobile > a {
+    font-size: 30px;
+    margin: 10px 0px;
+    font-weight: bold;
+  }
+}
+
+.link {
+  color: #fff;
+  font-weight: 700;
+}
