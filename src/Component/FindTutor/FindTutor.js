@@ -33,7 +33,7 @@ const FindTutor = () => {
       }
     });
 
-    setTutor(data);
+
   }, [filteredTeacher]);
 
   useEffect(() => {
@@ -93,12 +93,12 @@ const FindTutor = () => {
         </form>
       </div>
 
-      {tutor?.length > 0 ? <p style={{ color: 'white' }}>tutor?.length</p> : null}
+      {tutor?.length > 0 ? <p style={{ color: 'white', fontWeight: 'bold', marginLeft: '12px' }}>Tutors: {tutor?.length}</p> : null}
 
       {tutor?.length > 0 ? (
         <Grid container>
           {tutor.map((x) => (
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} key={x._id}>
               <CardBox
                 id={x._id}
                 img={x.personal.img}

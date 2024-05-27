@@ -3,7 +3,7 @@ import "./Faq.css";
 const Faq = () => {
   return (
     <div className="shu_Box">
-      <div className="card_s">
+      {/* <div className="card_s">
         <img
           className="card-header_s"
           src="https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg"
@@ -27,7 +27,7 @@ const Faq = () => {
             </a>
           </div>
         </article>
-      </div>
+      </div> */}
     </div>
   );
 };

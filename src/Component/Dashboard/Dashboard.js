@@ -63,9 +63,9 @@ const Dashboard = () => {
           <Button onClick={handleJobs} className={step === 2 && 'dashboard_active'}>
             Tuition Request
           </Button>
-          <Button className={step === 3 && 'dashboard_active'} onClick={handleContact}>
+          {/* <Button className={step === 3 && 'dashboard_active'} onClick={handleContact}>
             Contact Request{' '}
-          </Button>
+          </Button> */}
         </div>
         {load && <div className="loading">Loading&#8230;</div>}
         {step === 1 && <Counter></Counter>}

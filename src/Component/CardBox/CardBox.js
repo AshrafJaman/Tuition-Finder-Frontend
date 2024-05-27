@@ -43,20 +43,41 @@ const CardBox = ({
     setCan(joiN);
   }, [other]);
 
+
+  function getRating() {
+    const applicants = tutor.applicants;
+
+    const ratingsArr = applicants.filter((a) => a?.rating > 0 ? true : false);
+
+    const ratings = ratingsArr.reduce((acc, cur) => {
+      return acc + cur.rating;
+    }, 0)
+
+
+    if (!ratingsArr.length) return 0;
+
+    return ratings / ratingsArr.length;
+
+  }
+
+
+  const rating = tutor?.applicants ? getRating() : 0
+
+
   return (
     <Card className="cardBox">
       <Avatar src={img} alt={name} className={classes.large}></Avatar>
       <p>
         {verified && <VerifiedUserIcon className="verified"></VerifiedUserIcon>}
-        <StarsIcon></StarsIcon> {star}
+        <StarsIcon></StarsIcon> {rating.toFixed(2)}
       </p>
       <CardActionArea className="cardBoxTop">
         <h3>{name}</h3>
         <p>{`${subject} @ ${inst}`}</p>
         <div className="iCanTutor">
           <span style={{ color: 'gray' }}>I can teach :</span>
-          {can.map((x) => (
-            <Button>{x}</Button>
+          {can.map((x, idx) => (
+            <Button key={idx}>{x}</Button>
           ))}
         </div>
       </CardActionArea>

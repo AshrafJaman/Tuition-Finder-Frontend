@@ -17,7 +17,7 @@
   margin-left: 20px;
 }
 .profileTop > div > button {
-  color: #8990f5;
+  color: #0866ff;
 }
 .profileTop > div > div > button {
   background-color: #0866ff;
@@ -41,12 +41,12 @@
   max-height: fit-content;
 }
 .profileBottom > div > h3 {
-  color: #cbc5c5;
+  color: #0866ff;
   letter-spacing: 1px;
 }
 .profileBottom > div > div > button {
   background: none;
-  border: 2px solid #7777b1;
+  border: 2px solid #0866ff;
   color: white;
   font-weight: 700;
   text-transform: inherit;

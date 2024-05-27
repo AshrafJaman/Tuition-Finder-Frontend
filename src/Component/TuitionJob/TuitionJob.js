@@ -1,12 +1,12 @@
-import { Button, Card, Grid, Snackbar } from "@material-ui/core";
-import React, { useContext, useEffect, useState } from "react";
-import Navigation from "../Navigation/Navigation";
-import "./TuitionJob.css";
-import { UserContext } from "../Context/Sign_In_Context";
-import { Link } from "react-router-dom";
-import { JobsContext } from "../Context/Jobs_Context";
-import ApplyNowBtn from "../Apply-Now-Btn/Apply-now-btn";
-import { Alert } from "@material-ui/lab";
+import { Button, Card, Grid, Snackbar } from '@material-ui/core';
+import React, { useContext, useEffect, useState } from 'react';
+import Navigation from '../Navigation/Navigation';
+import './TuitionJob.css';
+import { UserContext } from '../Context/Sign_In_Context';
+import { Link } from 'react-router-dom';
+import { JobsContext } from '../Context/Jobs_Context';
+import ApplyNowBtn from '../Apply-Now-Btn/Apply-now-btn';
+import { Alert } from '@material-ui/lab';
 
 const TuitionJob = () => {
   const [user] = useContext(UserContext);
@@ -16,17 +16,15 @@ const TuitionJob = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    if (e.target[0].value !== "hide") {
-      const newArr = jobs.filter(
-        (x) => x.subject.toLowerCase() === e.target[0].value
-      );
+    if (e.target[0].value !== 'hide') {
+      const newArr = jobs.filter((x) => x.subject.toLowerCase() === e.target[0].value);
       setArr(newArr);
     }
-    if (e.target[1].value !== "hide") {
+    if (e.target[1].value !== 'hide') {
       const newArr = jobs.filter((x) => x.medium === e.target[1].value);
       setArr(newArr);
     }
-    if (e.target[2].value !== "hide") {
+    if (e.target[2].value !== 'hide') {
       const newArr = jobs.filter((x) => x.class === e.target[2].value);
       setArr(newArr);
     }
@@ -36,7 +34,7 @@ const TuitionJob = () => {
   }, [jobs]);
 
   useEffect(() => {
-    document.querySelector("body").classList.remove("no__scroll");
+    document.querySelector('body').classList.remove('no__scroll');
   }, []);
 
   function handleSnackMessage(msg) {
@@ -49,7 +47,9 @@ const TuitionJob = () => {
   return (
     <div className="tuition_job tuitionBox">
       <Navigation></Navigation>
-      <div className="filter">
+      <br></br>
+      <br></br>
+      {/* <div className="filter">
         <form onSubmit={handleChange}>
           <select name="subject">
             <option value="hide">-- Subject --</option>
@@ -84,16 +84,14 @@ const TuitionJob = () => {
           </select>
           <button type="submit">Filter</button>
         </form>
-      </div>
+      </div> */}
       <Grid container>
         {arr.map((x, i) =>
           !x.isApproved ? null : (
             <Grid key={i} item sm={12} md={6} lg={4}>
               <Card className="card" data-aos="zoom-in">
                 <div>
-                  <small style={{ color: "#0866FF" }}>
-                    #Tuition Id: {x._id}
-                  </small>
+                  <small style={{ color: '#0866FF' }}>#Tuition Id: {x._id}</small>
                 </div>
                 <div>
                   <h3>{x.title}</h3>
@@ -118,12 +116,6 @@ const TuitionJob = () => {
                   <p>Medium :</p>
                   <p>{x.medium}</p>
                 </div>
-                {/* {user && user.email === "ashrafjaman247@gmail.com" && (
-                  <div>
-                    <p>Salary :</p>
-                    <p>{x.salary} Tk/Month</p>
-                  </div>
-                )} */}
                 <div>
                   <p>Salary :</p>
                   <p>{x.salary} Tk/Month</p>

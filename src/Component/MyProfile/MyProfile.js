@@ -1,35 +1,35 @@
-import { Avatar, Button, Modal, Snackbar } from "@material-ui/core";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import Navigation from "../Navigation/Navigation";
-import StarsIcon from "@material-ui/icons/Stars";
-import CheckCircleRoundedIcon from "@material-ui/icons/CheckCircleRounded";
-import ContactForm from "../ContactForm/ContactForm";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
-import EmailIcon from "@material-ui/icons/Email";
-import CallIcon from "@material-ui/icons/Call";
-import { TeacherContext } from "../Context/TeacherList_Context";
-import { UserContext } from "../Context/Sign_In_Context";
-import EditIcon from "@material-ui/icons/Edit";
-import PaypalExpressBtn from "react-paypal-express-checkout";
-import Verification from "../Email/Verification";
-import { API_URL } from "../../constants";
-import { useAuth } from "../../hooks/useAuth";
-import { Alert } from "@material-ui/lab";
-import UpdateStudentInfo from "./UpdateStudentInfo";
+import { Avatar, Button, Modal, Snackbar } from '@material-ui/core';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Navigation from '../Navigation/Navigation';
+import StarsIcon from '@material-ui/icons/Stars';
+import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
+import ContactForm from '../ContactForm/ContactForm';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import EmailIcon from '@material-ui/icons/Email';
+import CallIcon from '@material-ui/icons/Call';
+import { TeacherContext } from '../Context/TeacherList_Context';
+import { UserContext } from '../Context/Sign_In_Context';
+import EditIcon from '@material-ui/icons/Edit';
+// import PaypalExpressBtn from 'react-paypal-express-checkout';
+import Verification from '../Email/Verification';
+import { API_URL } from '../../constants';
+import { useAuth } from '../../hooks/useAuth';
+import { Alert } from '@material-ui/lab';
+import UpdateStudentInfo from './UpdateStudentInfo';
 const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(20),
     height: theme.spacing(20),
-    margin: "40px 0px 5px 0px",
+    margin: '40px 0px 5px 0px',
   },
   modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
 
@@ -48,22 +48,21 @@ const MyProfile = () => {
   const authUser = auth.getCurrentUser();
 
   const client = {
-    sandbox:
-      "ARumogbdoLmSlPkL_zC41SjxA1oETyuZzTuj4qn9lcaQRjv-zEe0HO5H4cX5G-7Yxd_A4G3OpOOrl2cJ",
-    production: "YOUR-PRODUCTION-APP-ID",
+    sandbox: 'ARumogbdoLmSlPkL_zC41SjxA1oETyuZzTuj4qn9lcaQRjv-zEe0HO5H4cX5G-7Yxd_A4G3OpOOrl2cJ',
+    production: 'YOUR-PRODUCTION-APP-ID',
   };
 
-  let env = "sandbox";
+  let env = 'sandbox';
 
   const onSuccess = (payment) => {
-    alert("congratulations");
+    alert('congratulations');
     fetch(`${API_URL}/update/verify/${user.email}`, {
-      method: "PATCH",
+      method: 'PATCH',
       body: JSON.stringify({
         member: true,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((response) => response.text())
@@ -89,7 +88,7 @@ const MyProfile = () => {
   }, [teacher]);
 
   useEffect(() => {
-    document.querySelector("body").classList.remove("no__scroll");
+    document.querySelector('body').classList.remove('no__scroll');
   }, []);
   const classes = useStyles();
   // const settings = {
@@ -145,18 +144,14 @@ const MyProfile = () => {
               <h2>
                 {pro?.personal?.fullName
                   ? pro.personal.fullName
-                  : userFromDB?.name || authUser?.displayName}{" "}
+                  : userFromDB?.name || authUser?.displayName}{' '}
                 &nbsp;
-                {pro?.tuition?.member && (
-                  <VerifiedUserIcon className="verified" />
-                )}
+                {pro?.tuition?.member && <VerifiedUserIcon className="verified" />}
               </h2>
               <p>{pro?.personal?.email ?? authUser?.email}</p>
               <p>{pro?.personal?.mobile ?? userFromDB?.phoneNumber}</p>
-              <p style={{ marginBottom: "10px" }}>
-                {pro?.education?.subject ? (
-                  <>{pro.education.subject} @</>
-                ) : null}{" "}
+              <p style={{ marginBottom: '10px' }}>
+                {pro?.education?.subject ? <>{pro.education.subject} @</> : null}{' '}
                 {pro?.education?.institution}
               </p>
 
@@ -171,39 +166,37 @@ const MyProfile = () => {
                 </div>
               )}
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 <Button
                   onClick={() =>
-                    pro
-                      ? history.push("/registration-tutor", { ...pro })
-                      : handleOpen("update")
+                    pro ? history.push('/registration-tutor', { ...pro }) : handleOpen('update')
                   }
                 >
                   <EditIcon /> Update Profile
                 </Button>
 
-                <Button onClick={() => history.push("/my-blogs")}>Blogs</Button>
+                <Button onClick={() => history.push('/my-blogs')}>Blogs</Button>
 
-                <Button onClick={() => history.push("/my-tuition-jobs")}>
-                  Tuition Jobs
-                </Button>
+                <Button onClick={() => history.push('/my-tuition-jobs')}>Tuition Jobs</Button>
 
-                {pro?.tuition && (
+                <Button onClick={() => history.push('/my-teachers')}>My Teachers</Button>
+
+                {/* {pro?.tuition && (
                   <span>
                     <StarsIcon /> {pro?.tuition?.star.toFixed(1)}
                   </span>
-                )}
+                )} */}
               </div>
               {userFromDB && (
                 <div
                   style={{
-                    marginBlock: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
+                    marginBlock: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
                   }}
                 >
-                  <h3 style={{ textTransform: "uppercase" }}>
+                  <h3 style={{ textTransform: 'uppercase' }}>
                     ABOUT {userFromDB?.name || authUser?.displayName}
                   </h3>
 
@@ -219,7 +212,7 @@ const MyProfile = () => {
           <div className="profileBottom">
             {pro && (
               <div>
-                <h3 style={{ textTransform: "uppercase" }}>
+                <h3 style={{ textTransform: 'uppercase' }}>
                   ABOUT {pro?.personal?.fullName || authUser?.displayName}
                 </h3>
                 <p>{pro?.personal?.about}</p>
@@ -308,19 +301,6 @@ const MyProfile = () => {
                       <small>{pro?.tuition?.salary} Tk Per Month</small>
                     </div>
                   </li>
-                  {/* <li>
-                    <CheckCircleRoundedIcon></CheckCircleRoundedIcon>
-                    <div>
-                      <p>Expected Salary</p>
-                    </div>
-                    <div>
-                      {user && user.email === "ashrafjaman247@gmail.com" ? (
-                        <small>{pro?.tuition?.salary} Tk Per Month</small>
-                      ) : (
-                        <small>**** Tk Per Month</small>
-                      )}
-                    </div>
-                  </li> */}
                 </ul>
               </div>
             )}
@@ -346,7 +326,7 @@ const MyProfile = () => {
               <PaypalExpressBtn
                 env={env}
                 client={client}
-                currency={"USD"}
+                currency={'USD'}
                 total={10}
                 onError={onError}
                 onSuccess={onSuccess}
@@ -358,7 +338,7 @@ const MyProfile = () => {
               <div>
                 <div>
                   <Link to="/">
-                    {" "}
+                    {' '}
                     <i>tuition finder</i>
                   </Link>
                   <h3>
@@ -383,11 +363,7 @@ const MyProfile = () => {
               </div>
             </div>
           </Modal>
-          <Snackbar
-            open={snack}
-            autoHideDuration={4000}
-            onClose={handleSnackClose}
-          >
+          <Snackbar open={snack} autoHideDuration={4000} onClose={handleSnackClose}>
             <Alert severity="success" onClose={handleSnackClose}>
               {snack}
             </Alert>

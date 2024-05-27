@@ -46,9 +46,9 @@
   text-transform: capitalize;
 }
 .tuition_job_home {
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
-  padding: 10px 10%;
+  padding: 100px 10%;
   background-color: white;
 }
 .tuition_job_home > h2 {

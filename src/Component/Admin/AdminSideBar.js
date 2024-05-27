@@ -47,10 +47,10 @@ const AdminSideBar = ({ step, setStep }) => {
           Tutors
         </div>
 
-        <div className={step === 4 && 'active_admin'} onClick={() => setStep(4)}>
+        {/* <div className={step === 4 && 'active_admin'} onClick={() => setStep(4)}>
           <ContactPhoneIcon></ContactPhoneIcon>
           Contact Request
-        </div>
+        </div> */}
         <div className={step === 5 && 'active_admin'} onClick={() => setStep(5)}>
           <CreateIcon></CreateIcon>
           Blog Post

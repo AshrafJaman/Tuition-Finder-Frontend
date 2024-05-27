@@ -24,7 +24,6 @@ export function PrivateRoute({ children, ...rest }) {
 }
 export function AdminRoute({ children, ...rest }) {
   const [user] = useContext(UserContext);
-  
 
   return (
     <Route

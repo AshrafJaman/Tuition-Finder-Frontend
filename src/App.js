@@ -35,6 +35,8 @@ import MyTuitionJob from './Component/TuitionJob/MyTuitionJob';
 import EditTuitionJob from './Component/TuitionJob/EditTuitionJob';
 import TuitionRequests from './Component/TuitionJob/TuitionRequests';
 import TutorApplicantsRequests from './Component/TutorRegi/TutorApplicantsRequests';
+import MyTeacher from './Component/MyTeachers/MyTeacher';
+
 function App() {
   useEffect(() => {
     AOS.init();
@@ -92,12 +94,21 @@ function App() {
             </ProtectedRoute>
           </Route>
 
+
           <Route exact path="/my-tuition-jobs/edit/:id">
             <ProtectedRoute>
               <EditTuitionJob />
               <Footer></Footer>
             </ProtectedRoute>
           </Route>
+
+          <Route exact path="/my-teachers">
+            <ProtectedRoute>
+              <MyTeacher />
+              <Footer></Footer>
+            </ProtectedRoute>
+          </Route>
+
 
           <Route exact path="/subject/:id">
             <FindTutor />

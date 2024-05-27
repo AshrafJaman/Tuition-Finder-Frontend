@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./TopTutor.css";
-// import StarRatings from "react-star-ratings";
-import Slider from "react-slick";
-// import StarsIcon from "@material-ui/icons/Stars";
+import React, { useContext, useState } from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './TopTutor.css';
+import StarRatings from 'react-star-ratings';
+import Slider from 'react-slick';
+import StarsIcon from '@material-ui/icons/Stars';
 import {
   Button,
   Card,
@@ -14,18 +14,18 @@ import {
   Grid,
   Snackbar,
   Typography,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
-import { TeacherContext } from "../Context/TeacherList_Context";
-import { JobsContext } from "../Context/Jobs_Context";
-import { UserContext } from "../Context/Sign_In_Context";
-// import Feature from "../Feature/Feature";
-import ApplyNowBtn from "../Apply-Now-Btn/Apply-now-btn";
-import { Alert } from "@material-ui/lab";
+} from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { TeacherContext } from '../Context/TeacherList_Context';
+import { JobsContext } from '../Context/Jobs_Context';
+import { UserContext } from '../Context/Sign_In_Context';
+// import Feature from '../Feature/Feature';
+import ApplyNowBtn from '../Apply-Now-Btn/Apply-now-btn';
+import { Alert } from '@material-ui/lab';
 
 const settings = {
   dots: false,
-  centerMode: true,
+  // centerMode: true,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
@@ -61,6 +61,23 @@ const TopTutor = () => {
     setSnack(null);
   }
 
+
+
+
+  const t = filteredTeacher.map((t) => {
+    const applicants = t?.applicants || [];
+
+
+    const ratings = applicants.reduce((acc, cur) => acc + (cur?.rating || 0), 0);
+
+
+    return {
+      ...t,
+      ratings,
+    }
+  }).sort((a, b) => b.ratings - a.ratings)
+
+
   return (
     <>
       <div className="topTutor">
@@ -69,9 +86,8 @@ const TopTutor = () => {
           <p>Find the best tutor for you</p>
         </div>
         <Slider {...settings}>
-          {filteredTeacher.length !== 0 &&
-            filteredTeacher
-              // .sort((a, b) => b.tuition.star - a.tuition.star)
+          {t.length !== 0 &&
+            t
               .slice(0, 5)
               .map((x, index) => (
                 <Link to={`/profile/${x._id}`} key={index}>
@@ -86,12 +102,7 @@ const TopTutor = () => {
                       />
                     </CardActionArea>
                     <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h6"
-                        component="h2"
-                        className="expert"
-                      >
+                      <Typography gutterBottom variant="h6" component="h2" className="expert">
                         {x.personal.fullName}
                       </Typography>
                       <Typography
@@ -100,18 +111,11 @@ const TopTutor = () => {
                         component="p"
                         className="expert"
                       >
-                        {/* <StarsIcon></StarsIcon> */}
+                        <StarsIcon></StarsIcon>
                         {x.education.subject}
                       </Typography>
                       <Typography variant="body2" component="div">
-                        {/* <StarRatings
-                          rating={x.tuition.star}
-                          starRatedColor="#0866FF"
-                          numberOfStars={5}
-                          starDimension="25px"
-                          starSpacing="5px"
-                          name="rating"
-                        /> */}
+                        <Rating tutor={x} />
                       </Typography>
                     </CardContent>
                   </Card>
@@ -150,16 +154,11 @@ const TopTutor = () => {
                     <p>Subject :</p>
                     <p>{x.subject}</p>
                   </div>
-                  {/* <div>
+                  <div>
                     <p>Salary :</p>
                     <p>{x.salary} Tk/Month</p>
-                  </div> */}
-                  {user && user.email === "ashrafjaman247@gmail.com" && (
-                    <div>
-                      <p>Salary :</p>
-                      <p>{x.salary} Tk/Month</p>
-                    </div>
-                  )}
+                  </div>
+
                   {user && (
                     <div>
                       <h4># {x.extra_info}</h4>
@@ -202,3 +201,39 @@ const TopTutor = () => {
 };
 
 export default TopTutor;
+
+
+
+
+const Rating = ({ tutor }) => {
+
+  function getRating() {
+    const applicants = tutor.applicants;
+
+    const ratingsArr = applicants.filter((a) => a?.rating > 0 ? true : false);
+
+    const ratings = ratingsArr.reduce((acc, cur) => {
+      return acc + cur.rating;
+    }, 0)
+
+
+    if (!ratingsArr.length) return 0;
+
+    return ratings / ratingsArr.length;
+
+  }
+
+
+  const rating = tutor?.applicants ? getRating() : 0
+
+  return (
+    <StarRatings
+      rating={rating}
+      starRatedColor="#0866FF"
+      numberOfStars={5}
+      starDimension="25px"
+      starSpacing="5px"
+      name="rating"
+    />
+  )
+}

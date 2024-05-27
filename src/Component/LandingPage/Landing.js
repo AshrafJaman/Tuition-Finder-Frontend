@@ -18,8 +18,7 @@ const Landing = () => {
       <Navigation></Navigation>
       <div>
         <div className="landingLeft">
-          <h2>
-          Better Tutors, Better Grades</h2>
+          <h2>Better Tutors, Better Grades</h2>
           <form onSubmit={handleClick}>
             <SearchIcon></SearchIcon>
             <input type="text" name="search" placeholder="Search For Teacher" />
@@ -45,7 +44,7 @@ const Landing = () => {
               </Button>
             </div>
           </div>
-          <br/>
+          <br />
         </div>
       </div>
     </div>

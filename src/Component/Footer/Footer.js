@@ -18,8 +18,8 @@ const Footer = () => {
           <br />
           <Link to="/blog">Blog</Link>
           <br />
-          <a href="/home/#contact">Contact Us</a>
-          <br />
+          {/* <a href="/home/#contact">Contact Us</a>
+          <br /> */}
           <Link to="/about">About Us</Link>
         </p>
       </div>

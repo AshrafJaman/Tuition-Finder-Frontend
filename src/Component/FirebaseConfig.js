@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/storage";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBKbVVSby6kjPYR1MT5jMQIHIV8ztwP95U",
@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "tuition-finder-12f9b",
   storageBucket: "tuition-finder-12f9b.appspot.com",
   messagingSenderId: "30981357638",
-  appId: "1:30981357638:web:4097ff23eb041d448f0a47",
+  appId: "1:30981357638:web:4097ff23eb041d448f0a47"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
